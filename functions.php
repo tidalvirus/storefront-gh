@@ -14,6 +14,11 @@ function storefront_custom_logo() {
 	add_action( 'storefront_header', 'storefront_display_custom_logo', 20 );
 }
 
+add_filter('storefront_credit_link','custom_remove_footer_credit',10);
+function custom_remove_footer_credit(){
+	    return false; //return true to show it.
+}
+
 function storefront_display_custom_logo() {
 ?>
 	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo-link" rel="home">
